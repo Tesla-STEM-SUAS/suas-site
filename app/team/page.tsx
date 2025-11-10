@@ -63,7 +63,7 @@ const sections: { title: string; members: Member[] }[] = [
     {
         title: "Doc Subsystem",
         members: [
-            { name: "Timothy An", role: "Doc PM", imgSrc: "/images/image-18.png" },
+            { name: "Timothy An", role: "Doc PM", imgSrc: "/images/image-14.png" },
             { name: "Ved Agrawal", role: "Doc Member", imgSrc: "/images/image-15.png" },
         ],
     },
