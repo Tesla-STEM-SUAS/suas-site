@@ -22,7 +22,7 @@ const sections: { title: string; members: Member[] }[] = [
             { name: "Wenxin Fang", role: "Project Manager", imgSrc: "/images/image-16.png" },
             { name: "Iris Dey", role: "Management Lead", imgSrc: "/images/image-6.png" },
             { name: "Arnav Mittal", role: "Software Lead", imgSrc: "/images/image-3.png" },
-            { name: "Yu Tane Quah", role: "Operations Lead", imgSrc: "/images/image-17.png" },
+            { name: "Yu Tane Quah", role: "Operations Lead", imgSrc: "/images/image-36.png" },
         ],
     },
     {
