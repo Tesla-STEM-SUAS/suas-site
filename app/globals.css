@@ -3,13 +3,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #189a9f;
+  --primary-light: #4fd1d5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-exo2);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +27,130 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Loader styles */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-light); /* black background behind the drone */
+  z-index: 9999;
+  pointer-events: auto; /* block interaction while loader is visible */
+}
+
+.loader-stage {
+  position: relative;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.drone {
+  width: 120px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen-wipe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* put the wipe behind the drone stage so the drone remains visible */
+  z-index: 9995;
+  z-index: 10005;
+}
+
+/* A subtle fade behind the drone to make it pop */
+.loader-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  z-index: 9998;
+}
+/* Ensure loader-stage (drone) sits above the wipe */
+.loader-stage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10010;
+  pointer-events: none;
+}
+
+/* Page transition / wipe animation */
+:root {
+  --pt-in: 280ms;
+  --pt-hold: 80ms;
+  --pt-out: 380ms;
+}
+
+.page-wipe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary-light);
+  z-index: 10010;
+  pointer-events: none;
+  /* act as a mask for the drone: only show drone where the wipe exists */
+  overflow: hidden;
+}
+
+.page-wipe--in {
+  animation: wipeIn var(--pt-in) ease-in forwards;
+}
+
+.page-wipe--out {
+  animation: wipeOut var(--pt-out) ease-out forwards;
+}
+
+/* When the drone is rendered inside the .page-wipe it should be centered and
+   absolutely positioned so it's cropped by the wipe as it slides. */
+.page-wipe .drone {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes wipeIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Footer small tweaks to match site spacing */
+footer {
+  background: transparent;
+}
+
+footer a {
+  color: inherit;
+}
+
+
+@keyframes wipeOut {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
