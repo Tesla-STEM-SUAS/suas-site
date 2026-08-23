@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+// import Image from "next/image";
+// import { useEffect, useState } from "react";
 
 function gradientAccent(index: number, count: number) {
     const t = count > 1 ? index / (count - 1) : 0;
@@ -10,13 +10,13 @@ function gradientAccent(index: number, count: number) {
 }
 
 export default function AircraftPage() {
-    const [images, setImages] = useState<string[]>([]);
+    // const [images, setImages] = useState<string[]>([]);
 
-    useEffect(() => {
-        fetch("/api/images?folder=aircraft")
-            .then((res) => res.json())
-            .then((data: string[]) => setImages(data));
-    }, []);
+    // useEffect(() => {
+    //     fetch("/api/images?folder=aircraft")
+    //         .then((res) => res.json())
+    //         .then((data: string[]) => setImages(data));
+    // }, []);
 
     const highlightedSpecs: [string, string][] = [
         ["Tip-to-Tip Diameter", "173.5 cm (68.3 in)"],
@@ -120,7 +120,7 @@ export default function AircraftPage() {
                         different payload configurations as the aircraft evolves through many
                         generations of students.
                     </p>
-                    <h2>Images</h2>
+                    {/* <h2>Images</h2>
                     <p style={{ textAlign: "center" }}>
                         <i>
                             Images are shown for illustrative purposes only and may not reflect the
@@ -145,8 +145,8 @@ export default function AircraftPage() {
                                 />
                             </div>
                         ))}
-                    </div>
-                    
+                    </div> */}
+
                     <div className="mt-10">
                         <p className="mb-3 text-sm text-white/70">For SUAS members only:</p>
                         <a
