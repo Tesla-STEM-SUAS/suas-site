@@ -28,18 +28,18 @@ export default function AircraftPage() {
         ["scale", "Weight", "11 kg (24.3 lbs)"],
         ["aspect_ratio", "Dimensions (L × W × H)", "173.5 × 173.5 × 42.7 cm\n(68.3 × 68.3 × 16.8 in)"],
         ["flight_takeoff", "Takeoff/Landing", "VTOL"],
-        ["speed", "Cruise Speed", "25 kph (15 mph)"],
+        ["speed", "Cruise Speed", "25 mph (40 kph)"],
         ["timer", "Hover Flight Time", "45 min"],
         ["route", "Conservative Range", "22.5 km (14 mi)"],
     ];
 
     const softwareSpecs: [string, string, string][] = [
-        ["battery_full", "Battery", "16S LiPo"],
+        ["battery_full", "Battery", "12S Li-ion"],
         ["terminal", "Flight Stack", "ArduPilot"],
         ["videocam", "Video/Data Link", "Digital transmission"],
         ["memory", "Flight Controller", "STMicroelectronics STM32H757"],
         ["settings_input_antenna", "RC Link", "2.4 GHz manual\n900 MHz autopilot\n5 GHz data (video)"],
-        ["gps_fixed", "Positioning", "RTK-enabled GPS"],
+        ["gps_fixed", "Positioning", "RTK-corrected GPS"],
     ];
     return (
         <main className="text-white font-sans min-h-full flex-1 px-4 md:px-24 md:py-16 py-8 flex flex-col">

@@ -47,10 +47,10 @@ export const searchIndex: SearchEntry[] = [
       "tri-foldable airframe. Highlights: Tip-to-Tip Diameter 173.5 cm (68.3 in), Specific " +
       "Thrust Efficiency 7.62 g/W, Hover Flight Time 45 min. Flight specs: Weight 11 kg " +
       "(24.3 lbs), Dimensions 173.5 x 173.5 x 42.7 cm, Takeoff/Landing VTOL, Cruise Speed " +
-      "25 kph (15 mph), Conservative Range 22.5 km (14 mi). Electrical specs: Battery 16S LiPo, " +
+      "25 mph (40 kph), Conservative Range 22.5 km (14 mi). Electrical specs: Battery 12S Li-ion, " +
       "Flight Stack ArduPilot, Video/Data Link Digital transmission, Flight Controller " +
       "STMicroelectronics STM32H757, RC Link 2.4 GHz manual 900 MHz autopilot 5 GHz data video, " +
-      "Positioning RTK-enabled GPS. Key Design Principles: Efficiency, Deployability, " +
+      "Positioning RTK-corrected GPS. Key Design Principles: Efficiency, Deployability, " +
       "Modularity.",
   },
   {
