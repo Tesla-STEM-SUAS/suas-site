@@ -22,12 +22,25 @@ export async function GET(request: Request) {
 
         return new Response(JSON.stringify(images), {
             status: 200,
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                // Matches the edge caching the rest of the site gets, so this
+                // keeps serving the real gallery list from Cloudflare's cache
+                // even when the origin is unreachable.
+                // Keep the origin policy aligned with the Cloudflare rule:
+                // browsers may reuse it for 4 hours, while the edge keeps it
+                // for 24 hours before revalidating.
+                "Cache-Control": "public, max-age=14400, s-maxage=86400, stale-while-revalidate=60",
+            },
         });
     } catch (err) {
         return new Response(JSON.stringify([]), {
             status: 200,
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                // Never let an origin/filesystem failure poison the CDN cache.
+                "Cache-Control": "no-store",
+            },
         });
     }
 }

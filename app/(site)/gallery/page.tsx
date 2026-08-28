@@ -2,6 +2,13 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+// Used when /api/images is unreachable or the gallery folder is empty.
+const FALLBACK_PHOTOS = [
+    "/images/gallery/IMG-20251124-WA0005.jpg",
+    "/images/gallery/IMG-20251124-WA0020.jpg",
+    "/images/gallery/20260218_223214240_iOS.png",
+];
+
 export default function GalleryPage() {
     const [galleryPhotos, setGalleryPhotos] = useState<string[]>([]);
     const [isFullscreenMode, setIsFullscreenMode] = useState(false);
@@ -18,20 +25,12 @@ export default function GalleryPage() {
                     setGalleryPhotos(data);
                 } else {
                     // fallback to a small default set if directory is empty
-                    setGalleryPhotos([
-                        "/images/image-21.png",
-                        "/images/image-22.png",
-                        "/images/image-23.png",
-                    ]);
+                    setGalleryPhotos(FALLBACK_PHOTOS);
                 }
             })
             .catch(() => {
                 if (!mounted) return;
-                setGalleryPhotos([
-                    "/images/image-21.png",
-                    "/images/image-22.png",
-                    "/images/image-23.png",
-                ]);
+                setGalleryPhotos(FALLBACK_PHOTOS);
             });
 
         return () => {

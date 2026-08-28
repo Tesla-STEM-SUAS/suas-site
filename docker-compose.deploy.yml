@@ -1,0 +1,4 @@
+services:
+  suas-site:
+    build:
+      dockerfile: Dockerfile.deploy

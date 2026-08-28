@@ -1,0 +1,35 @@
+FROM node:20-bookworm-slim AS deps
+WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ \
+    && rm -rf /var/lib/apt/lists/*
+COPY package.json package-lock.json ./
+RUN --mount=type=cache,id=suas-site-npm,target=/root/.npm npm ci
+
+FROM node:20-bookworm-slim AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN --mount=type=cache,id=suas-site-next,target=/app/.next/cache \
+    --mount=type=secret,id=github_token \
+    sh -c 'if [ -f /run/secrets/github_token ]; then export GITHUB_TOKEN=$(cat /run/secrets/github_token); fi; npm run build'
+# The app's build places public/ inside standalone. Split it back out so the
+# large, rarely-changing asset tree remains a reusable image layer.
+RUN rm -rf .next/standalone/public
+
+FROM node:20-bookworm-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV PORT=3000
+RUN groupadd --gid 1001 nodejs && useradd --uid 1001 --gid nodejs --shell /bin/false --create-home nextjs
+
+COPY --link --from=builder /app/public ./public
+COPY --link --from=builder --chown=1001:1001 /app/.next/standalone ./
+COPY --link --from=builder --chown=1001:1001 /app/.next/static ./.next/static
+
+RUN mkdir -p /data && chown nextjs:nodejs /data
+ENV SPONSOR_DB_PATH=/data/sponsors.db
+VOLUME /data
+
+USER nextjs
+EXPOSE 3000
+CMD ["node", "server.js"]
