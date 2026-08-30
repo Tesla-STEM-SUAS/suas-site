@@ -41,13 +41,6 @@ export default function Home() {
                             represent Tesla STEM High School at Skyway Range in Tulsa, Oklahoma
                             later this year.
                         </p>
-                        <p className="text-gray-300 max-w-xl mb-8">
-                            SUAS@STEM is affiliated with Tesla STEM's{" "}
-                            <a href="https://engineeringclub.org" target="_blank">
-                                Engineering Club
-                            </a>
-                            .
-                        </p>
 
                         <a
                             href="/team"

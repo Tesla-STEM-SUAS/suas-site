@@ -20,8 +20,7 @@ export const searchIndex: SearchEntry[] = [
       "Our team designs and builds autonomous drones capable of performing complex real-world " +
       "missions including navigation, computer vision, and payload delivery. We are currently " +
       "designing and testing our fourth aircraft, Event Horizon-4, and are excited to represent " +
-      "Tesla STEM High School at Skyway Range in Tulsa, Oklahoma. SUAS@STEM is affiliated with " +
-      "Tesla STEM's Engineering Club.",
+      "Tesla STEM High School at Skyway Range in Tulsa, Oklahoma.",
   },
   {
     title: "Team",
