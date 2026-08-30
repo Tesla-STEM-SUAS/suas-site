@@ -54,11 +54,12 @@ export const searchIndex: SearchEntry[] = [
       "Modularity.",
   },
   {
-    title: "Contact",
+    title: "Contact & Sponsors",
     url: "/sponsor",
     content:
-      "Contact. Help send SUAS@STEM to the competition. Whether it's funding, parts, or " +
+      "Contact and Sponsors. Public team contact email contact@suasstem.org. Help send SUAS@STEM to the competition. Whether it's funding, parts, or " +
       "mentorship, we'd love to hear from you — drop us a note below and we'll get back to you. " +
+      "Connect with the team on LinkedIn at linkedin.com/company/suas-stem, Instagram at instagram.com/suas.stem, and YouTube at youtube.com/@SUASSTEM. " +
       "Name Company Email Message Send contact sponsorship donate support funding.",
   },
 ];

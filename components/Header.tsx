@@ -76,7 +76,7 @@ export default function Navbar(): React.ReactElement {
 								Aircraft
 							</Link>
 							<Link href="/sponsor" className="text-md font-medium hover:underline">
-								Contact
+								Contact &amp; Sponsors
 							</Link>
 						</div>
 					</div>
@@ -99,7 +99,7 @@ export default function Navbar(): React.ReactElement {
 								Aircraft
 							</Link>
 							<Link href="/sponsor" className="text-md font-medium hover:underline" onClick={() => setIsMenuOpen(false)}>
-								Contact
+								Contact &amp; Sponsors
 							</Link>
 							<SiteSearch />
 						</div>

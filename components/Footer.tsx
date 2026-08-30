@@ -20,7 +20,7 @@ export default function Footer(): React.ReactElement {
               Aircraft
             </Link>
             <Link href="/sponsor" className="text-sm hover:underline">
-              Sponsor
+              Contact &amp; Sponsors
             </Link>
           </div>
 
@@ -29,6 +29,40 @@ export default function Footer(): React.ReactElement {
           </div>
 
           <div className="flex gap-4 items-center">
+            <a
+              href="mailto:contact@suasstem.org"
+              aria-label="Email SUAS@STEM"
+              className="text-xs text-white/60 hover:text-teal-300 transition"
+            >
+              Email
+            </a>
+            <a
+              href="https://linkedin.com/company/suas-stem"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="SUAS@STEM on LinkedIn"
+              className="text-xs text-white/60 hover:text-sky-300 transition"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://instagram.com/suas.stem"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="SUAS@STEM on Instagram"
+              className="text-xs text-white/60 hover:text-pink-300 transition"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://www.youtube.com/@SUASSTEM"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="SUAS@STEM on YouTube"
+              className="text-xs text-white/60 hover:text-red-300 transition"
+            >
+              YouTube
+            </a>
             <a
               href="https://dev.suasstem.org"
               className="text-xs text-white/30 hover:text-white/60 transition font-mono"
