@@ -20,7 +20,7 @@ export default function Footer(): React.ReactElement {
               Aircraft
             </Link>
             <Link href="/sponsor" className="text-sm hover:underline">
-              Contact &amp; Sponsors
+              Contact
             </Link>
           </div>
 
